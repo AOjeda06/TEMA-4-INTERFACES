@@ -1,39 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Pressable, Text, View, StyleSheet, Alert } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
 const Index = () => {
   const [count, setCount] = useState(0);
 
-  // Alerta cuando el contador alcanza 10
-  useEffect(() => {
-    if (count % 10 === 0) {
-      alert(`¡Has alcanzado ${count} clicks! 🎉`);
+  // ✅ Función única para manejar incremento o decremento
+  const handleCountChange = (type: 'increment' | 'decrement') => {
+    const newCount = type === 'increment' ? count + 1 : count - 1;
+    setCount(newCount);
+
+    if (newCount !== 0 && newCount % 10 === 0) {
+      alert(`¡Has alcanzado ${newCount} clicks! 🎉`);
     }
-  }, [count]);
-
-  // Incrementar el contador
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-
-  // Decrementar el contador
-  const handleDecrement = () => {
-    setCount(count - 1);
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Contador: {count}</Text>
 
-      <Pressable onPress={handleIncrement} style={styles.button}>
+      <Pressable onPress={() => handleCountChange('increment')} style={styles.button}>
         <Text style={styles.buttonText}>Incrementar</Text>
         <Ionicons name="add-circle" size={24} color="white" />
       </Pressable>
 
       <View style={{ height: 10 }} />
 
-      <Pressable onPress={handleDecrement} style={styles.button}>
+      <Pressable onPress={() => handleCountChange('decrement')} style={styles.button}>
         <Text style={styles.buttonText}>Decrementar</Text>
         <Ionicons name="remove-circle" size={24} color="white" />
       </Pressable>
