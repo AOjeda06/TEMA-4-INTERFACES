@@ -7,8 +7,8 @@ const Index = () => {
 
   // Alerta cuando el contador alcanza 10
   useEffect(() => {
-    if (count === 10) {
-      alert('¡Has alcanzado 10! 🎉');
+    if (count % 10 === 0) {
+      alert(`¡Has alcanzado ${count} clicks! 🎉`);
     }
   }, [count]);
 
