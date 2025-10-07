@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     elevation: 5,
+    borderWidth: 2
   },
   image: {
     width: '100%',
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
     textAlign: 'center',
+    fontWeight: 'bold'
   },
 });
 
