@@ -24,6 +24,7 @@ export default function Index() {
             {item.nombre} {item.apellido}
           </Text>
         )}
+        style={styles.FlatList}
       />;
     </View>
   );
@@ -34,5 +35,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+
+  FlatList: {
+    flex: 1,
+    textAlign: "center",
+    alignSelf: "center",
   },
 });
